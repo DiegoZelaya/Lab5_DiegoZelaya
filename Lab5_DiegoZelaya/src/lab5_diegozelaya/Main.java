@@ -249,6 +249,12 @@ public class Main extends javax.swing.JFrame {
 
         jLabel10.setText("Jefe Carrera");
 
+        carreras_jefe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carreras_jefeActionPerformed(evt);
+            }
+        });
+
         carreras_costo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#######"))));
 
         jLabel11.setText("Tipo");
@@ -256,6 +262,11 @@ public class Main extends javax.swing.JFrame {
         carreras_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Licenciaturas", "Ingenierias", "Ciencias de la Salud" }));
 
         carreras_agregar.setText("Agregar");
+        carreras_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carreras_agregarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -265,7 +276,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
@@ -281,13 +292,16 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel11))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(carreras_jefe)
-                                    .addComponent(carreras_costo)
-                                    .addComponent(carreras_tipo, 0, 150, Short.MAX_VALUE)))))
+                                    .addComponent(carreras_tipo, 0, 162, Short.MAX_VALUE)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(carreras_costo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                            .addComponent(carreras_jefe, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(carreras_agregar)))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addGap(335, 335, 335))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,9 +354,9 @@ public class Main extends javax.swing.JFrame {
         maestros_cie.setText("Ciencias de la Salud");
 
         maestros_agregar.setText("Agregar");
-        maestros_agregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maestros_agregarActionPerformed(evt);
+        maestros_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                maestros_agregarMouseClicked(evt);
             }
         });
 
@@ -561,9 +575,44 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ModificarActionPerformed
 
-    private void maestros_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maestros_agregarActionPerformed
+    private void carreras_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carreras_agregarMouseClicked
+        
+    }//GEN-LAST:event_carreras_agregarMouseClicked
+
+    private void maestros_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maestros_agregarMouseClicked
+        DefaultListModel model
+                = (DefaultListModel) maestros_lista.getModel();
+
+        String clase1="",clase2="",clase3="";
+        if (maestros_lic.isSelected()) {
+            clase1 = "Licenciatura";
+        }            
+        if (maestros_ing.isSelected()) {
+            clase2 = "Ingenieria";
+        }
+        if (maestros_cie.isSelected()) {
+            clase3 = "Ciencias de la Salud";
+        }
+        model.addElement(new Maestros(maestros_nombre.getText(),
+                maestros_apellido.getText(),
+                maestros_salario.getText(),
+                (Integer) maestros_edad.getValue(),
+                clase1, clase2, clase3
+        )
+        );
+        maestros_lista.setModel(model);
+        maestros_nombre.setText("");
+        maestros_apellido.setText("");
+        maestros_salario.setText("");
+        maestros_edad.setValue(0);
+        maestros_lic.setSelected(false);
+        maestros_ing.setSelected(false);
+        maestros_cie.setSelected(false);
+    }//GEN-LAST:event_maestros_agregarMouseClicked
+
+    private void carreras_jefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carreras_jefeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_maestros_agregarActionPerformed
+    }//GEN-LAST:event_carreras_jefeActionPerformed
 
     /**
      * @param args the command line arguments
