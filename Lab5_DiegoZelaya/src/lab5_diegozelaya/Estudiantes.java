@@ -4,7 +4,7 @@ package lab5_diegozelaya;
 public class Estudiantes {
     private String nombre;
     private String apellido;
-    private int cuenta;
+    private String cuenta;
     private int edad;
     private String genero;
     private String carrera;
@@ -12,7 +12,7 @@ public class Estudiantes {
     public Estudiantes() {
     }
 
-    public Estudiantes(String nombre, String apellido, int cuenta, int edad, String genero, String carrera) {
+    public Estudiantes(String nombre, String apellido, String cuenta, int edad, String genero, String carrera) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cuenta = cuenta;
@@ -37,11 +37,11 @@ public class Estudiantes {
         this.apellido = apellido;
     }
 
-    public int getCuenta() {
+    public String getCuenta() {
         return cuenta;
     }
 
-    public void setCuenta(int cuenta) {
+    public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
@@ -71,7 +71,7 @@ public class Estudiantes {
 
     @Override
     public String toString() {
-        return "Estudiantes{" + "nombre=" + nombre + ", apellido=" + apellido + ", cuenta=" + cuenta + ", edad=" + edad + ", genero=" + genero + ", carrera=" + carrera + '}';
+        return nombre + " " + cuenta + " " + carrera;
     }
     
 }

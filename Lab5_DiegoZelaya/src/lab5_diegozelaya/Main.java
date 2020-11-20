@@ -6,6 +6,7 @@
 package lab5_diegozelaya;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -48,7 +49,7 @@ public class Main extends javax.swing.JFrame {
         estudiantes_agregar = new javax.swing.JButton();
         estudiantes_cuenta = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        estudiantes_lista = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         jPanel5 = new javax.swing.JPanel();
@@ -87,18 +88,10 @@ public class Main extends javax.swing.JFrame {
 
         estudiantes_cuenta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("########"))));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        estudiantes_lista.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(estudiantes_lista);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jList2.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jList2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -246,7 +239,31 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void estudiantes_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_estudiantes_agregarMouseClicked
-        
+        DefaultListModel model
+                = (DefaultListModel) estudiantes_lista.getModel();
+
+        String sexo="";
+        if (estudiantes_m.isSelected()) {
+            sexo = "M";
+        } else {
+            sexo = "F";
+        } 
+        model.addElement(new Estudiantes(estudiantes_nombre.getText(),
+                estudiantes_apellido.getText(),
+                (String) estudiantes_cuenta.getValue(),
+                (Integer) estudiantes_edad.getValue(),
+                sexo,
+                (String) estudiantes_carrera.getSelectedItem()
+        )
+        );
+        estudiantes_lista.setModel(model);
+        estudiantes_nombre.setText("");
+        estudiantes_apellido.setText("");
+        estudiantes_cuenta.setText("");
+        estudiantes_edad.setValue(0);
+        estudiantes_m.setSelected(true);
+        estudiantes_f.setSelected(false);
+        estudiantes_carrera.setSelectedIndex(0);
     }//GEN-LAST:event_estudiantes_agregarMouseClicked
 
     /**
@@ -292,6 +309,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField estudiantes_cuenta;
     private javax.swing.JSpinner estudiantes_edad;
     private javax.swing.JRadioButton estudiantes_f;
+    private javax.swing.JList<String> estudiantes_lista;
     private javax.swing.JRadioButton estudiantes_m;
     private javax.swing.JTextField estudiantes_nombre;
     private javax.swing.JLabel jLabel1;
@@ -300,7 +318,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
