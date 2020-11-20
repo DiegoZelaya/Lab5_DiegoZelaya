@@ -33,12 +33,12 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        estudiantes_genero = new javax.swing.ButtonGroup();
         estudiantes_popup = new javax.swing.JPopupMenu();
         estudiantes_modificar = new javax.swing.JMenuItem();
         estudiantes_eliminar = new javax.swing.JMenuItem();
         estudiantes_arbol = new javax.swing.JMenuItem();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        clases_aire = new javax.swing.ButtonGroup();
         carreras_popup = new javax.swing.JPopupMenu();
         carreras_modificar = new javax.swing.JMenuItem();
         carreras_eliminar = new javax.swing.JMenuItem();
@@ -187,11 +187,11 @@ public class Main extends javax.swing.JFrame {
 
         estudiantes_edad.setModel(new javax.swing.SpinnerNumberModel());
 
-        buttonGroup1.add(estudiantes_m);
+        estudiantes_genero.add(estudiantes_m);
         estudiantes_m.setSelected(true);
         estudiantes_m.setText("M");
 
-        buttonGroup1.add(estudiantes_f);
+        estudiantes_genero.add(estudiantes_f);
         estudiantes_f.setText("F");
 
         estudiantes_carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Licenciaturas", "Ingenierias", "Ciencias de la Salud" }));
@@ -520,7 +520,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel15.setText("Salon");
 
-        jLabel16.setText("Aire?");
+        jLabel16.setText("Aire");
 
         clases_seccion.setModel(new javax.swing.SpinnerNumberModel());
 
@@ -528,10 +528,10 @@ public class Main extends javax.swing.JFrame {
 
         clases_salon.setModel(new javax.swing.SpinnerNumberModel());
 
-        buttonGroup2.add(clases_si);
+        clases_aire.add(clases_si);
         clases_si.setText("Si");
 
-        buttonGroup2.add(clases_no);
+        clases_aire.add(clases_no);
         clases_no.setSelected(true);
         clases_no.setText("No");
 
@@ -924,8 +924,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton carreras_agregar;
     private javax.swing.JFormattedTextField carreras_costo;
     private javax.swing.JMenuItem carreras_eliminar;
@@ -937,6 +935,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu carreras_popup;
     private javax.swing.JComboBox<String> carreras_tipo;
     private javax.swing.JButton clases_agregar;
+    private javax.swing.ButtonGroup clases_aire;
     private javax.swing.JSpinner clases_edificio;
     private javax.swing.JMenuItem clases_eliminar;
     private javax.swing.JList<String> clases_lista;
@@ -955,6 +954,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner estudiantes_edad;
     private javax.swing.JMenuItem estudiantes_eliminar;
     private javax.swing.JRadioButton estudiantes_f;
+    private javax.swing.ButtonGroup estudiantes_genero;
     private javax.swing.JList<String> estudiantes_lista;
     private javax.swing.JRadioButton estudiantes_m;
     private javax.swing.JMenuItem estudiantes_modificar;

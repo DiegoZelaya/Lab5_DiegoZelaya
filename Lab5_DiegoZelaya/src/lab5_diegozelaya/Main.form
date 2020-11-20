@@ -2,7 +2,7 @@
 
 <Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="estudiantes_genero">
     </Component>
     <Container class="javax.swing.JPopupMenu" name="estudiantes_popup">
 
@@ -36,7 +36,7 @@
         </MenuItem>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    <Component class="javax.swing.ButtonGroup" name="clases_aire">
     </Component>
     <Container class="javax.swing.JPopupMenu" name="carreras_popup">
 
@@ -305,7 +305,7 @@
             <Component class="javax.swing.JRadioButton" name="estudiantes_m">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="estudiantes_genero"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="M"/>
@@ -314,7 +314,7 @@
             <Component class="javax.swing.JRadioButton" name="estudiantes_f">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="estudiantes_genero"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="F"/>
               </Properties>
@@ -869,7 +869,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Aire?"/>
+                <Property name="text" type="java.lang.String" value="Aire"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="clases_nombre">
@@ -898,7 +898,7 @@
             <Component class="javax.swing.JRadioButton" name="clases_si">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="clases_aire"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Si"/>
               </Properties>
@@ -906,7 +906,7 @@
             <Component class="javax.swing.JRadioButton" name="clases_no">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="clases_aire"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="No"/>
