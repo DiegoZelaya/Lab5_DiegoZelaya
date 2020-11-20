@@ -83,7 +83,7 @@ public class Maestros {
 
     @Override
     public String toString() {
-        return apellido;
+        return apellido + " (" + clase1 + " | " + clase2 + " | " + clase3 + ")";
     }
     
 }

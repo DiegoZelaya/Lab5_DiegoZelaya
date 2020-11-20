@@ -4,14 +4,14 @@ package lab5_diegozelaya;
 public class Carrera {
     private String nombre;
     private String facultad;
-    private int costo;
+    private String costo;
     private String jefe;
     private String tipo;
 
     public Carrera() {
     }
 
-    public Carrera(String nombre, String facultad, int costo, String jefe, String tipo) {
+    public Carrera(String nombre, String facultad, String costo, String jefe, String tipo) {
         this.nombre = nombre;
         this.facultad = facultad;
         this.costo = costo;
@@ -35,11 +35,11 @@ public class Carrera {
         this.facultad = facultad;
     }
 
-    public int getCosto() {
+    public String getCosto() {
         return costo;
     }
 
-    public void setCosto(int costo) {
+    public void setCosto(String costo) {
         this.costo = costo;
     }
 
@@ -61,7 +61,7 @@ public class Carrera {
 
     @Override
     public String toString() {
-        return "Carrera{" + "nombre=" + nombre + ", facultad=" + facultad + ", costo=" + costo + ", jefe=" + jefe + ", tipo=" + tipo + '}';
+        return nombre + " " + jefe + " " + tipo;
     }
     
 }

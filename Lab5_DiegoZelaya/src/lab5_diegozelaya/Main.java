@@ -5,9 +5,6 @@
  */
 package lab5_diegozelaya;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -75,7 +72,7 @@ public class Main extends javax.swing.JFrame {
         carreras_tipo = new javax.swing.JComboBox<>();
         carreras_agregar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        carreras_lista = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -106,7 +103,7 @@ public class Main extends javax.swing.JFrame {
         clases_no = new javax.swing.JRadioButton();
         clases_agregar = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        clases_lista = new javax.swing.JList<>();
 
         estudiantes_modificar.setText("jMenuItem1");
         estudiantes_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -296,8 +293,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane2.setViewportView(jList1);
+        carreras_lista.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(carreras_lista);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -494,9 +491,14 @@ public class Main extends javax.swing.JFrame {
         clases_no.setText("No");
 
         clases_agregar.setText("Agregar");
+        clases_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clases_agregarMouseClicked(evt);
+            }
+        });
 
-        jList2.setModel(new DefaultListModel());
-        jScrollPane5.setViewportView(jList2);
+        clases_lista.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(clases_lista);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -622,7 +624,22 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_estudiantes_modificarActionPerformed
 
     private void carreras_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carreras_agregarMouseClicked
-        
+        DefaultListModel model
+                = (DefaultListModel) carreras_lista.getModel();
+
+        model.addElement(new Carrera(carreras_nombre.getText(),
+                carreras_facultad.getText(),
+                carreras_costo.getText(),
+                carreras_jefe.getText(),
+                (String) carreras_tipo.getSelectedItem()
+        )
+        );
+        carreras_lista.setModel(model);
+        carreras_nombre.setText("");
+        carreras_facultad.setText("");
+        carreras_costo.setText("");
+        carreras_jefe.setText("");
+        carreras_tipo.setSelectedIndex(0);
     }//GEN-LAST:event_carreras_agregarMouseClicked
 
     private void maestros_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maestros_agregarMouseClicked
@@ -745,6 +762,32 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_estudiantes_arbolActionPerformed
 
+    private void clases_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clases_agregarMouseClicked
+        DefaultListModel model
+                = (DefaultListModel) carreras_lista.getModel();
+
+        boolean aire=false;
+        if (clases_si.isSelected()) {
+            aire = true;
+        } else {
+            aire = false;
+        }
+        model.addElement(new Clases(clases_nombre.getText(),
+                (Integer) clases_seccion.getValue(),
+                (Integer) clases_edificio.getValue(),
+                (Integer) clases_salon.getValue(),
+                aire
+        )
+        );
+        clases_lista.setModel(model);
+        clases_nombre.setText("");
+        clases_seccion.setValue(0);
+        clases_edificio.setValue(0);
+        clases_salon.setValue(0);
+        clases_si.setSelected(false);
+        clases_no.setSelected(true);
+    }//GEN-LAST:event_clases_agregarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -787,10 +830,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField carreras_costo;
     private javax.swing.JTextField carreras_facultad;
     private javax.swing.JTextField carreras_jefe;
+    private javax.swing.JList<String> carreras_lista;
     private javax.swing.JTextField carreras_nombre;
     private javax.swing.JComboBox<String> carreras_tipo;
     private javax.swing.JButton clases_agregar;
     private javax.swing.JSpinner clases_edificio;
+    private javax.swing.JList<String> clases_lista;
     private javax.swing.JRadioButton clases_no;
     private javax.swing.JTextField clases_nombre;
     private javax.swing.JSpinner clases_salon;
@@ -831,8 +876,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
